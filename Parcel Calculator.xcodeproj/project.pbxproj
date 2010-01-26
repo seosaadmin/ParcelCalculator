@@ -1,0 +1,416 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58140DA1D0A300B32029 /* MainMenu.xib */; };
+		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
+		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
+		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		A95D6B7C10EFB0E200B7AEA7 /* SVParcelCalculatorController.m in Sources */ = {isa = PBXBuildFile; fileRef = A95D6B7910EFB0E200B7AEA7 /* SVParcelCalculatorController.m */; };
+		A95D6B7D10EFB0E200B7AEA7 /* SVParcelCalculatorControllerPrivate.m in Sources */ = {isa = PBXBuildFile; fileRef = A95D6B7B10EFB0E200B7AEA7 /* SVParcelCalculatorControllerPrivate.m */; };
+		F81AECB0104014330063C868 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F81AECAF104014330063C868 /* Sparkle.framework */; };
+		F81AECB9104014650063C868 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = F81AECAF104014330063C868 /* Sparkle.framework */; };
+		F82E633D110BABC000ECEDC0 /* ParcelCalculator.help in Resources */ = {isa = PBXBuildFile; fileRef = F82E6310110BABC000ECEDC0 /* ParcelCalculator.help */; };
+		F87455BA110DA0D10000E3D6 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = F87455B9110DA0D10000E3D6 /* dsa_pub.pem */; };
+		F896663510B7667300CA1733 /* dpdlogo.png in Resources */ = {isa = PBXBuildFile; fileRef = F896663410B7667300CA1733 /* dpdlogo.png */; };
+		F8C28E4E10073646004B90F9 /* PCalc_AppBanner.png in Resources */ = {isa = PBXBuildFile; fileRef = F8C28E4D10073646004B90F9 /* PCalc_AppBanner.png */; };
+		F8D9DD7B100709BC007DC2FA /* PackageIcon.icns in Resources */ = {isa = PBXBuildFile; fileRef = F8D9DD77100709BC007DC2FA /* PackageIcon.icns */; };
+		F8D9DD8910070E8F007DC2FA /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = F8D9DD8810070E8F007DC2FA /* Credits.rtf */; };
+		F8D9DD9710071379007DC2FA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F8D9DD9510071379007DC2FA /* Localizable.strings */; };
+		F8F24E8210B6761C006F822F /* delete.icns in Resources */ = {isa = PBXBuildFile; fileRef = F8F24E7F10B6761C006F822F /* delete.icns */; };
+		F8F24E8310B6761C006F822F /* down.icns in Resources */ = {isa = PBXBuildFile; fileRef = F8F24E8010B6761C006F822F /* down.icns */; };
+		F8F24E8410B6761C006F822F /* help.icns in Resources */ = {isa = PBXBuildFile; fileRef = F8F24E8110B6761C006F822F /* help.icns */; };
+		F8F24E9310B67820006F822F /* search.icns in Resources */ = {isa = PBXBuildFile; fileRef = F8F24E9210B67820006F822F /* search.icns */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		F8ECBEAC102EF5F40007EBB6 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				F81AECB9104014650063C868 /* Sparkle.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		089C165DFE840E0CC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		13E42FB307B3F0F600E4EEF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
+		1DDD58150DA1D0A300B32029 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
+		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		32CA4F630368D1EE00C91783 /* Parcel Calculator_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Parcel Calculator_Prefix.pch"; sourceTree = "<group>"; };
+		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8D1107320486CEB800E47090 /* Parcel Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Parcel Calculator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A95D6B7810EFB0E200B7AEA7 /* SVParcelCalculatorController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVParcelCalculatorController.h; sourceTree = "<group>"; };
+		A95D6B7910EFB0E200B7AEA7 /* SVParcelCalculatorController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVParcelCalculatorController.m; sourceTree = "<group>"; };
+		A95D6B7A10EFB0E200B7AEA7 /* SVParcelCalculatorControllerPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVParcelCalculatorControllerPrivate.h; sourceTree = "<group>"; };
+		A95D6B7B10EFB0E200B7AEA7 /* SVParcelCalculatorControllerPrivate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVParcelCalculatorControllerPrivate.m; sourceTree = "<group>"; };
+		F81AECAF104014330063C868 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
+		F82E6310110BABC000ECEDC0 /* ParcelCalculator.help */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ParcelCalculator.help; sourceTree = "<group>"; };
+		F87455B9110DA0D10000E3D6 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
+		F896663410B7667300CA1733 /* dpdlogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dpdlogo.png; sourceTree = "<group>"; };
+		F8C28E4D10073646004B90F9 /* PCalc_AppBanner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PCalc_AppBanner.png; sourceTree = "<group>"; };
+		F8D9DD651007051A007DC2FA /* German */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = German; path = German.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		F8D9DD661007052D007DC2FA /* German */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = German; path = German.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F8D9DD77100709BC007DC2FA /* PackageIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = PackageIcon.icns; sourceTree = "<group>"; };
+		F8D9DD8610070E7E007DC2FA /* English */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = English; path = English.lproj/Credits.rtf; sourceTree = "<group>"; };
+		F8D9DD8A10070EA0007DC2FA /* German */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = German; path = German.lproj/Credits.rtf; sourceTree = "<group>"; };
+		F8D9DD9610071379007DC2FA /* German */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = German; path = German.lproj/Localizable.strings; sourceTree = "<group>"; wrapsLines = 1; };
+		F8F24E7F10B6761C006F822F /* delete.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = delete.icns; sourceTree = "<group>"; };
+		F8F24E8010B6761C006F822F /* down.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = down.icns; sourceTree = "<group>"; };
+		F8F24E8110B6761C006F822F /* help.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = help.icns; sourceTree = "<group>"; };
+		F8F24E9210B67820006F822F /* search.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = search.icns; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8D11072E0486CEB800E47090 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
+				F81AECB0104014330063C868 /* Sparkle.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		080E96DDFE201D6D7F000001 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				A95D6B7810EFB0E200B7AEA7 /* SVParcelCalculatorController.h */,
+				A95D6B7910EFB0E200B7AEA7 /* SVParcelCalculatorController.m */,
+				A95D6B7A10EFB0E200B7AEA7 /* SVParcelCalculatorControllerPrivate.h */,
+				A95D6B7B10EFB0E200B7AEA7 /* SVParcelCalculatorControllerPrivate.m */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F81AECAF104014330063C868 /* Sparkle.framework */,
+				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
+			);
+			name = "Linked Frameworks";
+			sourceTree = "<group>";
+		};
+		1058C7A2FEA54F0111CA2CBB /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				29B97324FDCFA39411CA2CEA /* AppKit.framework */,
+				13E42FB307B3F0F600E4EEF1 /* CoreData.framework */,
+				29B97325FDCFA39411CA2CEA /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		19C28FACFE9D520D11CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8D1107320486CEB800E47090 /* Parcel Calculator.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		29B97314FDCFA39411CA2CEA /* Parcel Calculator */ = {
+			isa = PBXGroup;
+			children = (
+				080E96DDFE201D6D7F000001 /* Classes */,
+				29B97315FDCFA39411CA2CEA /* Other Sources */,
+				29B97317FDCFA39411CA2CEA /* Resources */,
+				29B97323FDCFA39411CA2CEA /* Frameworks */,
+				19C28FACFE9D520D11CA2CBB /* Products */,
+			);
+			name = "Parcel Calculator";
+			sourceTree = "<group>";
+		};
+		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				32CA4F630368D1EE00C91783 /* Parcel Calculator_Prefix.pch */,
+				29B97316FDCFA39411CA2CEA /* main.m */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		29B97317FDCFA39411CA2CEA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1DDD58140DA1D0A300B32029 /* MainMenu.xib */,
+				F8D9DD8810070E8F007DC2FA /* Credits.rtf */,
+				F8D9DD9510071379007DC2FA /* Localizable.strings */,
+				8D1107310486CEB800E47090 /* Info.plist */,
+				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
+				F8D9DD77100709BC007DC2FA /* PackageIcon.icns */,
+				F8F24E7F10B6761C006F822F /* delete.icns */,
+				F8F24E8010B6761C006F822F /* down.icns */,
+				F8F24E8110B6761C006F822F /* help.icns */,
+				F8F24E9210B67820006F822F /* search.icns */,
+				F896663410B7667300CA1733 /* dpdlogo.png */,
+				F8C28E4D10073646004B90F9 /* PCalc_AppBanner.png */,
+				F82E6310110BABC000ECEDC0 /* ParcelCalculator.help */,
+				F87455B9110DA0D10000E3D6 /* dsa_pub.pem */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */,
+				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8D1107260486CEB800E47090 /* Parcel Calculator */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "Parcel Calculator" */;
+			buildPhases = (
+				8D1107290486CEB800E47090 /* Resources */,
+				8D11072C0486CEB800E47090 /* Sources */,
+				8D11072E0486CEB800E47090 /* Frameworks */,
+				F8ECBEAC102EF5F40007EBB6 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Parcel Calculator";
+			productInstallPath = "$(HOME)/Applications";
+			productName = "Parcel Calculator";
+			productReference = 8D1107320486CEB800E47090 /* Parcel Calculator.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		29B97313FDCFA39411CA2CEA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				ORGANIZATIONNAME = "Stefan Vogt";
+			};
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Parcel Calculator" */;
+			compatibilityVersion = "Xcode 3.2";
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+				da,
+				en,
+				de,
+				kro,
+			);
+			mainGroup = 29B97314FDCFA39411CA2CEA /* Parcel Calculator */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8D1107260486CEB800E47090 /* Parcel Calculator */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8D1107290486CEB800E47090 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
+				1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */,
+				F8D9DD7B100709BC007DC2FA /* PackageIcon.icns in Resources */,
+				F8D9DD8910070E8F007DC2FA /* Credits.rtf in Resources */,
+				F8D9DD9710071379007DC2FA /* Localizable.strings in Resources */,
+				F8C28E4E10073646004B90F9 /* PCalc_AppBanner.png in Resources */,
+				F8F24E8210B6761C006F822F /* delete.icns in Resources */,
+				F8F24E8310B6761C006F822F /* down.icns in Resources */,
+				F8F24E8410B6761C006F822F /* help.icns in Resources */,
+				F8F24E9310B67820006F822F /* search.icns in Resources */,
+				F896663510B7667300CA1733 /* dpdlogo.png in Resources */,
+				F82E633D110BABC000ECEDC0 /* ParcelCalculator.help in Resources */,
+				F87455BA110DA0D10000E3D6 /* dsa_pub.pem in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8D11072C0486CEB800E47090 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D11072D0486CEB800E47090 /* main.m in Sources */,
+				A95D6B7C10EFB0E200B7AEA7 /* SVParcelCalculatorController.m in Sources */,
+				A95D6B7D10EFB0E200B7AEA7 /* SVParcelCalculatorControllerPrivate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		089C165CFE840E0CC02AAC07 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				089C165DFE840E0CC02AAC07 /* English */,
+				F8D9DD661007052D007DC2FA /* German */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		1DDD58140DA1D0A300B32029 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1DDD58150DA1D0A300B32029 /* English */,
+				F8D9DD651007051A007DC2FA /* German */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		F8D9DD8810070E8F007DC2FA /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F8D9DD8610070E7E007DC2FA /* English */,
+				F8D9DD8A10070EA0007DC2FA /* German */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		F8D9DD9510071379007DC2FA /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F8D9DD9610071379007DC2FA /* German */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C01FCF4B08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 14;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../Frameworks/BWToolkit\"",
+					"\"$(SRCROOT)/../Frameworks/Sparkle\"",
+					"\"$(SRCROOT)\"",
+				);
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_ENABLE_OBJC_GC = required;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Parcel Calculator_Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				IBC_NOTICES = NO;
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Applications";
+				PRODUCT_NAME = "Parcel Calculator";
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Debug;
+		};
+		C01FCF4C08A954540054247B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CURRENT_PROJECT_VERSION = 14;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../Frameworks/BWToolkit\"",
+					"\"$(SRCROOT)/../Frameworks/Sparkle\"",
+					"\"$(SRCROOT)\"",
+				);
+				GCC_ENABLE_OBJC_GC = required;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Parcel Calculator_Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				IBC_NOTICES = NO;
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Applications";
+				PRODUCT_NAME = "Parcel Calculator";
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Release;
+		};
+		C01FCF4F08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_ENABLE_OBJC_GC = required;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				ONLY_ACTIVE_ARCH = YES;
+				PREBINDING = NO;
+				SDKROOT = macosx10.6;
+			};
+			name = Debug;
+		};
+		C01FCF5008A954540054247B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_ENABLE_OBJC_GC = required;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				PREBINDING = NO;
+				SDKROOT = macosx10.6;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "Parcel Calculator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4B08A954540054247B /* Debug */,
+				C01FCF4C08A954540054247B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Parcel Calculator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4F08A954540054247B /* Debug */,
+				C01FCF5008A954540054247B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 29B97313FDCFA39411CA2CEA /* Project object */;
+}
