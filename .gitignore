@@ -1,3 +1,5 @@
+#.gitignore for Parcel Calculator
+
 .DS_Store
 *.swp
 
