@@ -1,0 +1,12 @@
+A native Cocoa application for calculating girth, volumetric weight and for tracking parcels. It’s designed for Mac OS X, Snow Leopard (or higher) is required. This work is released under a FreeBSD license variant. Feature overview:
+
+- calculation of girth and volumetric weight
+- parcel tracking (DPD, UPS and DHL)
+- Direct Parcel Distribution conformity tests
+- Sparkle software update
+- user preferences
+- beautiful designed graphical user interface
+- integrated help
+- multi-language: English and German
+
+TODO: Future versions will support a wider range of shipping companies and the ability to save certain parcel IDs, so you can track them again later.
