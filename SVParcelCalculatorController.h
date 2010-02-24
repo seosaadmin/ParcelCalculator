@@ -2,7 +2,7 @@
 //  SVParcelCalculatorController.h
 //  Parcel Calculator
 //
-//  Coded by Stefan Vogt, revised Jan 09, 2010.
+//  Coded by Stefan Vogt, revised Feb 23, 2010.
 //  Released under a FreeBSD license variant.
 //  http://www.byteproject.net
 //
@@ -11,9 +11,14 @@
 
 /* Tracking Mode */
 typedef enum {
+	SVTrackingModeDHL,
 	SVTrackingModeDPD,
-	SVTrackingModeUPS,
-	SVTrackingModeDHL
+	SVTrackingModeFedEx,
+	SVTrackingModeGLS,
+	SVTrackingModeHermes,
+	SVTrackingModeParcelForce,
+	SVTrackingModeRoyalMail,
+	SVTrackingModeUPS
 } SVTrackingMode;
 
 @interface SVParcelCalculatorController : NSObject {

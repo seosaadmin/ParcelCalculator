@@ -2,7 +2,7 @@
 //  SVParcelCalculatorControllerPrivate.m
 //  Parcel Calculator
 //
-//  Coded by Stefan Vogt, revised Jan 21, 2010.
+//  Coded by Stefan Vogt, revised Feb 23, 2010.
 //  Released under a FreeBSD license variant.
 //  http://www.byteproject.net
 //
@@ -91,9 +91,51 @@
 	[[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:issueTracker]];
 }
 
+
+- (IBAction)setModeDHL:(id)sender {
+	
+	[self willChangeValueForKey:@"trackingMode"];
+	_trackingMode = SVTrackingModeDHL;
+	[self didChangeValueForKey:@"trackingMode"];
+}
+
 - (IBAction)setModeDPD:(id)sender {
 	[self willChangeValueForKey:@"trackingMode"];
 	_trackingMode = SVTrackingModeDPD;
+	[self didChangeValueForKey:@"trackingMode"];
+}
+
+- (IBAction)setModeFedEx:(id)sender {
+	[self willChangeValueForKey:@"trackingMode"];
+	_trackingMode = SVTrackingModeFedEx;
+	[self didChangeValueForKey:@"trackingMode"];
+}
+
+- (IBAction)setModeGLS:(id)sender {
+	
+	[self willChangeValueForKey:@"trackingMode"];
+	_trackingMode = SVTrackingModeGLS;
+	[self didChangeValueForKey:@"trackingMode"];
+}
+
+- (IBAction)setModeHermes:(id)sender {
+	
+	[self willChangeValueForKey:@"trackingMode"];
+	_trackingMode = SVTrackingModeHermes;
+	[self didChangeValueForKey:@"trackingMode"];
+}
+
+- (IBAction)setModeParcelForce:(id)sender {
+	
+	[self willChangeValueForKey:@"trackingMode"];
+	_trackingMode = SVTrackingModeParcelForce;
+	[self didChangeValueForKey:@"trackingMode"];
+}
+
+- (IBAction)setModeRoyalMail:(id)sender {
+	
+	[self willChangeValueForKey:@"trackingMode"];
+	_trackingMode = SVTrackingModeRoyalMail;
 	[self didChangeValueForKey:@"trackingMode"];
 }
 
@@ -101,13 +143,6 @@
 
 	[self willChangeValueForKey:@"trackingMode"];
 	_trackingMode = SVTrackingModeUPS;
-	[self didChangeValueForKey:@"trackingMode"];
-}
-
-- (IBAction)setModeDHL:(id)sender {
-
-	[self willChangeValueForKey:@"trackingMode"];
-	_trackingMode = SVTrackingModeDHL;
 	[self didChangeValueForKey:@"trackingMode"];
 }
 

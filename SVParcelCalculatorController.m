@@ -2,7 +2,7 @@
 //  SVParcelCalculatorController.m
 //  Parcel Calculator
 //
-//  Coded by Stefan Vogt, revised Jan 09, 2010.
+//  Coded by Stefan Vogt, revised Feb 23, 2010.
 //  Released under a FreeBSD license variant.
 //  http://www.byteproject.net
 //
@@ -22,7 +22,7 @@
 	self = [super init];
 	if (self) {
 		[self willChangeValueForKey:@"trackingMode"];
-		_trackingMode = SVTrackingModeDPD;
+		_trackingMode = SVTrackingModeDHL;
 		[self didChangeValueForKey:@"trackingMode"];
 	}
 	return self;
@@ -97,11 +97,11 @@
 #pragma mark Strings
 
 - (NSString *)longGirthString {
-	return [NSString stringWithFormat:NSLocalizedString(@"girth: %.0lf cm",nil), [self girth]];
+	return [NSString stringWithFormat:NSLocalizedString(@"Girth: %.0lf cm",nil), [self girth]];
 }
 
 - (NSString *)longVolumetricWeightString {
-	return [NSString stringWithFormat:NSLocalizedString(@"volumetric weight: %.2lf kg",nil), [self volumetricWeight]];
+	return [NSString stringWithFormat:NSLocalizedString(@"Volumetric weight: %.2lf kg",nil), [self volumetricWeight]];
 }
 
 - (NSString *)heightString {
@@ -160,23 +160,54 @@
 	NSString *trackingURLString = nil;
 	NSString *trackLocale = nil;
 	switch (_trackingMode) {
-		case SVTrackingModeDPD: {
-			trackLocale = NSLocalizedString(@"&typ=1&lang=en",nil);
+		case SVTrackingModeDHL: {
+			trackLocale = NSLocalizedString(@"en",nil);
 			trackingURLString = [NSString stringWithFormat:
-						  @"http://extranet.dpd.de/cgi-bin/delistrack?pknr=%@%@", _trackingNumberString, trackLocale];
+								 @"http://nolp.dhl.de/nextt-online-public/set_identcodes.do?lang=%@&idc=%@", 
+								 trackLocale, _trackingNumberString];
+			break;
+		}
+		case SVTrackingModeDPD: {
+			trackLocale = NSLocalizedString(@"en",nil);
+			trackingURLString = [NSString stringWithFormat:
+								 @"http://extranet.dpd.de/cgi-bin/delistrack?pknr=%@&typ=1&lang=%@", 
+								 _trackingNumberString, trackLocale];
+			break;
+		}
+		case SVTrackingModeFedEx: {
+			trackLocale = NSLocalizedString(@"en",nil);
+			trackingURLString = [NSString stringWithFormat:
+								 @"http://fedex.com/Tracking?cntry_code=%@&tracknumber_list=%@", 
+								 trackLocale, _trackingNumberString];
+			break;
+		}
+		case SVTrackingModeGLS: {
+			trackLocale = NSLocalizedString(@"EN",nil);
+			trackingURLString = [NSString stringWithFormat:
+								 @"http://www.gls-group.eu/276-I-PORTAL-WEB/content/GLS/DE03/"\
+								 "%@/5004.htm?txtRefNo=%@&txtAction=71000", 
+								 trackLocale, _trackingNumberString];
+			break;
+		}
+		case SVTrackingModeHermes: {
+			trackingURLString = [NSString stringWithFormat:
+								 @"http://tracking.hlg.de/Tracking.jsp?TrackID=%@", _trackingNumberString];
+			break;
+		}
+		case SVTrackingModeParcelForce: {
+			trackingURLString = [NSString stringWithFormat:
+								 @"http://www.parcelforce.com/portal/pw/track?trackNumber=%@", _trackingNumberString];
+			break;
+		}
+		case SVTrackingModeRoyalMail: {
+			trackingURLString = [NSString stringWithFormat:
+								 @"http://www.royalmail.com/portal/rm/track?trackNumber=%@", _trackingNumberString];
 			break;
 		}
 		case SVTrackingModeUPS: {
-			trackLocale = NSLocalizedString(@"loc=en_US",nil);
+			trackLocale = NSLocalizedString(@"en_US",nil);
 			trackingURLString = [NSString stringWithFormat:
-						  @"http://wwwapps.ups.com/WebTracking/processInputRequest?%@&tracknum=%@", 
-						  trackLocale, _trackingNumberString];
-			break;
-		}
-		case SVTrackingModeDHL: {
-			trackLocale = NSLocalizedString(@"lang=en",nil);
-			trackingURLString = [NSString stringWithFormat:
-						  @"http://nolp.dhl.de/nextt-online-public/set_identcodes.do?%@&idc=%@", 
+						  @"http://wwwapps.ups.com/WebTracking/processInputRequest?loc=%@&tracknum=%@", 
 						  trackLocale, _trackingNumberString];
 			break;
 		}
