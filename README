@@ -1,12 +1,18 @@
-A native Cocoa application for calculating girth, volumetric weight and for tracking parcels. It’s designed for Mac OS X, Snow Leopard (or higher) is required. This work is released under a FreeBSD license variant. Feature overview:
+'Parcel Calculator' is native Mac OS X application for calculating girth, volumetric weight and for tracking parcels. It is written in ObjC / Cocoa with extensive usage of Objective-C 2.0 sytnax. Newer technologies such as garbage collection require Snow Leopard (or higher) to work properly. Feature overview:
 
 - calculation of girth and volumetric weight
 - parcel tracking: DHL, DPD, FedEx, GLS, Hermes, ParcelForce, Royal Mail, UPS
-- Direct Parcel Distribution conformity tests
+- Direct Parcel Distribution (DPD) conformity tests
 - Sparkle software update
 - user preferences
 - beautiful designed graphical user interface
 - integrated help
 - multi-language: English and German
 
-TODO: Future versions will support more shipping companies, more tools and the ability to save certain parcel IDs, so you can track them again later.
+What are these values for? The girth of an object is a measurement around it. It is often used by postal services and delivery companies as basis for pricing. The volumetric weight indicates how much space a parcel takes up in relation to its weight, charges for air freight are based on this value.
+
+TODO: support for more delivery companies, additional tools, save parcel IDs for later reference
+
+If you work with other operating systems, you might prefer 'pcp (Parcel Calculator Portable)', which is a command line variant written in portable C and aimed to compile on every conceivable platform. 'pcp' is also available here at GitHub.
+
+http://github.com/ByteProject/pcp
