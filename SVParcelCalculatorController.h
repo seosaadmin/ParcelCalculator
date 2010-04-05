@@ -2,7 +2,7 @@
 //  SVParcelCalculatorController.h
 //  Parcel Calculator
 //
-//  Coded by Stefan Vogt, revised Feb 23, 2010.
+//  Coded by Stefan Vogt, revised Mar 26, 2010.
 //  Released under a FreeBSD license variant.
 //  http://www.byteproject.net
 //
@@ -29,9 +29,9 @@ typedef enum {
 	IBOutlet NSButton *trackingButton;
 	
 	BOOL enableTrackingButton;
-	NSInteger _height, _width, _length;
-	SVTrackingMode _trackingMode;
-	NSString *_trackingNumberString;
+	NSInteger height, width, length;
+	SVTrackingMode trackingMode;
+	NSString *trackingNumberString;
 }
 
 @property (readwrite, assign) SVTrackingMode	trackingMode;
