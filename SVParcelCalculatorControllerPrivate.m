@@ -2,7 +2,7 @@
 //  SVParcelCalculatorControllerPrivate.m
 //  Parcel Calculator
 //
-//  Coded by Stefan Vogt, revised Feb 23, 2010.
+//  Coded by Stefan Vogt, revised Mar 26, 2010.
 //  Released under a FreeBSD license variant.
 //  http://www.byteproject.net
 //
@@ -15,7 +15,7 @@
 #pragma mark Sheets
 
 - (IBAction)orderFrontVerificationSheet:(id)sender {
-	if (_height == 0 || _width == 0 || _length == 0) {
+	if (self.height == 0 || self.width == 0 || self.length == 0) {
 		NSAlert *verificationAlert = 
 		[NSAlert alertWithMessageText:NSLocalizedString(@"Conformity test not possible!",nil)
 						defaultButton:@"OK" 
@@ -42,7 +42,7 @@
 }
 
 - (IBAction)orderFrontTrackingSheet:(id)sender {
-	[self setValue:@"" forKey:@"trackingNumberString"];
+	self.trackingNumberString = @"";
 	[NSApp beginSheet:trackingSheet
 	   modalForWindow:mainWindow 
 		modalDelegate:self 
@@ -66,7 +66,6 @@
 - (IBAction)orderOutTrackingSheet:(id)sender {
 	[NSApp endSheet:trackingSheet];
 	[trackingSheet orderOut:nil];
-	[trackingButton setEnabled:NO];
 }
 
 - (IBAction)orderOutPreferencesSheet:(id)sender {
@@ -93,57 +92,35 @@
 
 
 - (IBAction)setModeDHL:(id)sender {
-	
-	[self willChangeValueForKey:@"trackingMode"];
-	_trackingMode = SVTrackingModeDHL;
-	[self didChangeValueForKey:@"trackingMode"];
+	self.trackingMode = SVTrackingModeDHL;
 }
 
 - (IBAction)setModeDPD:(id)sender {
-	[self willChangeValueForKey:@"trackingMode"];
-	_trackingMode = SVTrackingModeDPD;
-	[self didChangeValueForKey:@"trackingMode"];
+	self.trackingMode = SVTrackingModeDPD;
 }
 
 - (IBAction)setModeFedEx:(id)sender {
-	[self willChangeValueForKey:@"trackingMode"];
-	_trackingMode = SVTrackingModeFedEx;
-	[self didChangeValueForKey:@"trackingMode"];
+	self.trackingMode = SVTrackingModeFedEx;
 }
 
 - (IBAction)setModeGLS:(id)sender {
-	
-	[self willChangeValueForKey:@"trackingMode"];
-	_trackingMode = SVTrackingModeGLS;
-	[self didChangeValueForKey:@"trackingMode"];
+	self.trackingMode = SVTrackingModeGLS;
 }
 
 - (IBAction)setModeHermes:(id)sender {
-	
-	[self willChangeValueForKey:@"trackingMode"];
-	_trackingMode = SVTrackingModeHermes;
-	[self didChangeValueForKey:@"trackingMode"];
+	self.trackingMode = SVTrackingModeHermes;
 }
 
 - (IBAction)setModeParcelForce:(id)sender {
-	
-	[self willChangeValueForKey:@"trackingMode"];
-	_trackingMode = SVTrackingModeParcelForce;
-	[self didChangeValueForKey:@"trackingMode"];
+	self.trackingMode = SVTrackingModeParcelForce;
 }
 
 - (IBAction)setModeRoyalMail:(id)sender {
-	
-	[self willChangeValueForKey:@"trackingMode"];
-	_trackingMode = SVTrackingModeRoyalMail;
-	[self didChangeValueForKey:@"trackingMode"];
+	self.trackingMode = SVTrackingModeRoyalMail;
 }
 
 - (IBAction)setModeUPS:(id)sender {
-
-	[self willChangeValueForKey:@"trackingMode"];
-	_trackingMode = SVTrackingModeUPS;
-	[self didChangeValueForKey:@"trackingMode"];
+	self.trackingMode = SVTrackingModeUPS;
 }
 
 @end
