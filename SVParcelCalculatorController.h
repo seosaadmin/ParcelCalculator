@@ -32,7 +32,6 @@ typedef enum {
 	NSInteger height, width, length;
 	SVTrackingMode trackingMode;
 	NSString *trackingNumberString;
-	NSMutableArray *trackingList;
 }
 
 @property (readwrite, assign) SVTrackingMode	trackingMode;
