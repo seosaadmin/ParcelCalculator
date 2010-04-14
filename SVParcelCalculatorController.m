@@ -26,6 +26,10 @@
 	return self;
 }
 
+- (void)applicationDidFinishLaunching:(NSNotification *)notification {
+	// foo!
+}
+
 #pragma mark Key-Value Coding
 
 + (NSSet *)keyPathsForValuesAffectingValueForKey:(NSString *)key {
