@@ -311,7 +311,6 @@
 				CURRENT_PROJECT_VERSION = 16;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/../Frameworks/BWToolkit\"",
 					"\"$(SRCROOT)/../Frameworks/Sparkle\"",
 					"\"$(SRCROOT)\"",
 				);
@@ -340,7 +339,6 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/../Frameworks/BWToolkit\"",
 					"\"$(SRCROOT)/../Frameworks/Sparkle\"",
 					"\"$(SRCROOT)\"",
 				);
