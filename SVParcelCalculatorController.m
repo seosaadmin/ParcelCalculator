@@ -11,6 +11,8 @@
 
 #define MAX_ALLOWED_GIRTH 300
 #define MAX_ALLOWED_LENGTH 175
+#define defaultTrackingMode SVTrackingModeDHL
+#define myTrackingMode
 
 @implementation SVParcelCalculatorController
 
@@ -21,13 +23,13 @@
 - (id)init {
 	self = [super init];
 	if (self) {
-		self.trackingMode = SVTrackingModeDHL;
+		self.trackingMode = defaultTrackingMode;
 	}
 	return self;
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)notification {
-	// foo!
+	NSLog(@"foo");
 }
 
 #pragma mark Key-Value Coding
