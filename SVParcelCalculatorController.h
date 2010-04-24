@@ -2,14 +2,14 @@
 //  SVParcelCalculatorController.h
 //  Parcel Calculator
 //
-//  Coded by Stefan Vogt, revised Mar 26, 2010.
+//  Coded by Stefan Vogt, revised Apr 24, 2010.
 //  Released under a FreeBSD license variant.
 //  http://www.byteproject.net
 //
 
 #import <Cocoa/Cocoa.h>
 
-/* Tracking Mode */
+/* tracking mode */
 typedef enum {
 	SVTrackingModeDHL,
 	SVTrackingModeDPD,
@@ -28,22 +28,31 @@ typedef enum {
 	IBOutlet NSPanel *preferencesSheet;
 	IBOutlet NSButton *trackingButton;
 	
+	BOOL SVHasLaunchedBefore;
 	BOOL enableTrackingButton;
 	NSInteger height, width, length;
-	SVTrackingMode trackingMode;
+	NSInteger maxAllowedGirth;
+	NSInteger maxAllowedLength;
+	NSInteger prefMode;
 	NSString *trackingNumberString;
+	SVTrackingMode trackingMode;
 }
 
+/* integer and float values */
 @property (readwrite, assign) SVTrackingMode	trackingMode;
-@property (readwrite, assign) NSString			*trackingNumberString;
 @property (readwrite, assign) NSInteger			height;
 @property (readwrite, assign) NSInteger			width;
 @property (readwrite, assign) NSInteger			length;
+@property (readwrite, assign) NSInteger			maxAllowedGirth;
+@property (readwrite, assign) NSInteger			maxAllowedLength;
+@property (readwrite, assign) NSInteger			prefMode;
 @property (readonly) CGFloat					girth;
 @property (readonly) CGFloat					volumetricWeight;
+@property (readwrite, assign) BOOL				SVHasLaunchedBefore;
 @property (readonly) BOOL						enableTrackingButton;
 
-/* Strings */
+/* strings */
+@property (readwrite, assign) NSString			*trackingNumberString;
 @property(readonly) NSString					*widthString;
 @property(readonly) NSString					*heightString;
 @property(readonly) NSString					*lengthString;
@@ -58,11 +67,11 @@ typedef enum {
 @property(readonly) NSString					*lengthInfoMessage;
 @property(readonly) NSString					*userActionInfoMessage;
 
-/* Actions */
+/* actions */
 - (IBAction)reset:(id)sender;
 - (IBAction)trackParcel:(id)sender;
 
-/* Initialization */
+/* initialization */
 - (void)applicationDidFinishLaunching:(NSNotification *)notification;
 
 @end

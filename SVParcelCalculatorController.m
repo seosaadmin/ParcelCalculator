@@ -2,34 +2,45 @@
 //  SVParcelCalculatorController.m
 //  Parcel Calculator
 //
-//  Coded by Stefan Vogt, revised Mar 26, 2010.
+//  Coded by Stefan Vogt, revised Apr 24, 2010.
 //  Released under a FreeBSD license variant.
 //  http://www.byteproject.net
 //
 
 #import "SVParcelCalculatorController.h"
 
-#define MAX_ALLOWED_GIRTH 300
-#define MAX_ALLOWED_LENGTH 175
 #define defaultTrackingMode SVTrackingModeDHL
-#define myTrackingMode
 
 @implementation SVParcelCalculatorController
 
-@synthesize height, width, length, trackingMode, trackingNumberString;
+@synthesize SVHasLaunchedBefore, height, width, length, trackingMode, trackingNumberString, 
+			prefMode, maxAllowedGirth, maxAllowedLength;
 
 #pragma mark Initialization
 
 - (id)init {
 	self = [super init];
 	if (self) {
-		self.trackingMode = defaultTrackingMode;
+		[self addObserver: self
+			   forKeyPath: @"prefMode"
+				  options: NSKeyValueObservingOptionNew
+				  context: NULL];
+		
+		self.maxAllowedGirth = 300;
+		self.maxAllowedLength = 175;
 	}
 	return self;
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)notification {
-	NSLog(@"foo");
+	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+	if ([defaults boolForKey:@"SVHasLaunchedBefore"] == 0) {
+		[defaults setBool:1 forKey:@"SVHasLaunchedBefore"];
+		[defaults setInteger:defaultTrackingMode forKey:@"prefMode"];
+	}
+	self.prefMode = [defaults integerForKey:@"prefMode"];
+	self.trackingMode = self.prefMode;
+	
 }
 
 #pragma mark Key-Value Coding
@@ -72,8 +83,7 @@
 	return keyPaths;
 }
 
-- (void)setNilValueForKey:(NSString *)key
-{
+- (void)setNilValueForKey:(NSString *)key {
 	if ([key isEqualToString:@"height"]) {
 		self.height = 0;
 	}
@@ -85,6 +95,24 @@
 	}
 	else {
 		[super setNilValueForKey:key];
+	}
+}
+
+- (void)observeValueForKeyPath:(NSString *)key
+                      ofObject:(id)object
+                        change:(NSDictionary *)change
+                       context:(void *)context
+{
+    if ([key isEqualToString:@"prefMode"])
+    {
+		NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        [defaults setInteger:self.prefMode forKey:@"prefMode"];
+    }
+	else {
+		[super observeValueForKeyPath:key
+							 ofObject:(id)object 
+							   change:(NSDictionary *)change
+							  context:(void *)context];
 	}
 }
 
@@ -131,27 +159,27 @@
 }
 
 - (NSString *)shipmentInfoMessage {
-	if (self.girth > MAX_ALLOWED_GIRTH || self.length > MAX_ALLOWED_LENGTH)
+	if (self.girth > self.maxAllowedGirth || self.length > self.maxAllowedLength)
 		return NSLocalizedString(@"Failed, shipment not possible.",nil);
 	return NSLocalizedString(@"Values correspond to DPD guidelines.",nil);
 }
 
 - (NSString *)girthInfoMessage {
-	if (self.girth > MAX_ALLOWED_GIRTH)
+	if (self.girth > self.maxAllowedGirth)
 		return [NSString stringWithFormat:NSLocalizedString
 				(@"Max. girth exceeded with: %.0lf cm.",nil), self.girth - 300];
 	return NSLocalizedString(@"Max. girth is not exceeded.",nil);
 }
 
 - (NSString *)lengthInfoMessage {
-	if (self.length > MAX_ALLOWED_LENGTH)
+	if (self.length > self.maxAllowedLength)
 		return [NSString stringWithFormat:NSLocalizedString
 				(@"Max. length exceeded with: %d cm.",nil), self.length - 175];
 	return NSLocalizedString(@"Max. length is not exceeded.",nil);
 }
 
 - (NSString *)userActionInfoMessage {
-	if (self.girth > MAX_ALLOWED_GIRTH || self.length > MAX_ALLOWED_LENGTH)
+	if (self.girth > self.maxAllowedGirth || self.length > self.maxAllowedLength)
 		return NSLocalizedString(@"Contact your local depot or parcel-shop.",nil);
 	return NSLocalizedString(@"Shipment of this parcel is possible.",nil);
 }
