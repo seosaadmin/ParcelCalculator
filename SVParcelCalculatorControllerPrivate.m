@@ -2,7 +2,7 @@
 //  SVParcelCalculatorControllerPrivate.m
 //  Parcel Calculator
 //
-//  Coded by Stefan Vogt, revised Mar 26, 2010.
+//  Coded by Stefan Vogt, revised Apr 25, 2010.
 //  Released under a FreeBSD license variant.
 //  http://www.byteproject.net
 //
@@ -14,8 +14,10 @@
 
 #pragma mark Sheets
 
-- (IBAction)orderFrontVerificationSheet:(id)sender {
-	if (self.height == 0 || self.width == 0 || self.length == 0) {
+- (IBAction)orderFrontVerificationSheet:(id)sender 
+{
+	if (self.height == 0 || self.width == 0 || self.length == 0) 
+	{
 		NSAlert *verificationAlert = 
 		[NSAlert alertWithMessageText:NSLocalizedString(@"Conformity test not possible!",nil)
 						defaultButton:@"OK" 
@@ -41,7 +43,8 @@
 		  contextInfo:NULL];
 }
 
-- (IBAction)orderFrontTrackingSheet:(id)sender {
+- (IBAction)orderFrontTrackingSheet:(id)sender 
+{
 	self.trackingNumberString = @"";
 	[NSApp beginSheet:trackingSheet
 	   modalForWindow:mainWindow 
@@ -50,7 +53,8 @@
 		  contextInfo:NULL];
 }
 
-- (IBAction)orderFrontPreferencesSheet:(id)sender {
+- (IBAction)orderFrontPreferencesSheet:(id)sender 
+{
 	[NSApp beginSheet:preferencesSheet
 	   modalForWindow:mainWindow 
 		modalDelegate:self 
@@ -58,68 +62,82 @@
 		  contextInfo:NULL];
 }
 
-- (IBAction)orderOutVerificationSheet:(id)sender {
+- (IBAction)orderOutVerificationSheet:(id)sender 
+{
 	[NSApp endSheet:verificationSheet]; 
     [verificationSheet orderOut:nil];
 }
 
-- (IBAction)orderOutTrackingSheet:(id)sender {
+- (IBAction)orderOutTrackingSheet:(id)sender 
+{
 	[NSApp endSheet:trackingSheet];
 	[trackingSheet orderOut:nil];
 }
 
-- (IBAction)orderOutPreferencesSheet:(id)sender {
+- (IBAction)orderOutPreferencesSheet:(id)sender 
+{
 	[NSApp endSheet:preferencesSheet];
 	[preferencesSheet orderOut:nil];
 }
 
 #pragma mark Main Menu
 
-- (IBAction)openHomePage:(id)sender {
+- (IBAction)openHomePage:(id)sender 
+{
 	NSString *appHomePage = (@"http://www.byteproject.net/?page_id=11");
 	[[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:appHomePage]];
 }
 
-- (IBAction)openSourceRepository:(id)sender {
+- (IBAction)openSourceRepository:(id)sender 
+{
 	NSString *sourceRepository = (@"http://github.com/ByteProject/ParcelCalculator");
 	[[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:sourceRepository]];
 }
 
-- (IBAction)openIssueTracker:(id)sender {
+- (IBAction)openIssueTracker:(id)sender 
+{
 	NSString *issueTracker = (@"http://github.com/ByteProject/ParcelCalculator/issues");
 	[[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:issueTracker]];
 }
 
 
-- (IBAction)setModeDHL:(id)sender {
+- (IBAction)setModeDHL:(id)sender 
+{
 	self.trackingMode = SVTrackingModeDHL;
 }
 
-- (IBAction)setModeDPD:(id)sender {
+- (IBAction)setModeDPD:(id)sender 
+{
 	self.trackingMode = SVTrackingModeDPD;
 }
 
-- (IBAction)setModeFedEx:(id)sender {
+- (IBAction)setModeFedEx:(id)sender 
+{
 	self.trackingMode = SVTrackingModeFedEx;
 }
 
-- (IBAction)setModeGLS:(id)sender {
+- (IBAction)setModeGLS:(id)sender 
+{
 	self.trackingMode = SVTrackingModeGLS;
 }
 
-- (IBAction)setModeHermes:(id)sender {
+- (IBAction)setModeHermes:(id)sender
+{
 	self.trackingMode = SVTrackingModeHermes;
 }
 
-- (IBAction)setModeParcelForce:(id)sender {
+- (IBAction)setModeParcelForce:(id)sender 
+{
 	self.trackingMode = SVTrackingModeParcelForce;
 }
 
-- (IBAction)setModeRoyalMail:(id)sender {
+- (IBAction)setModeRoyalMail:(id)sender 
+{
 	self.trackingMode = SVTrackingModeRoyalMail;
 }
 
-- (IBAction)setModeUPS:(id)sender {
+- (IBAction)setModeUPS:(id)sender
+{
 	self.trackingMode = SVTrackingModeUPS;
 }
 
