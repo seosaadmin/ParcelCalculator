@@ -36,6 +36,6 @@ All rights reserved.</string>
 	<key>SUPublicDSAKeyFile</key>
 	<string>dsa_pub.pem</string>
 	<key>SUFeedURL</key>
-	<string>http://byteproject.net/appcast/pcalculator_appcast_en.xml</string>
+	<string>http://files.byteproject.net/appcast/pcalculator_appcast_en.xml</string>
 </dict>
 </plist>
