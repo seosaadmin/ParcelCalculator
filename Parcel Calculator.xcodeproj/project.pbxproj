@@ -22,6 +22,8 @@
 		F8D9DD7B100709BC007DC2FA /* PackageIcon.icns in Resources */ = {isa = PBXBuildFile; fileRef = F8D9DD77100709BC007DC2FA /* PackageIcon.icns */; };
 		F8D9DD8910070E8F007DC2FA /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = F8D9DD8810070E8F007DC2FA /* Credits.rtf */; };
 		F8D9DD9710071379007DC2FA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F8D9DD9510071379007DC2FA /* Localizable.strings */; };
+		F8DDDE061195E3BC00796B78 /* user.icns in Resources */ = {isa = PBXBuildFile; fileRef = F8DDDE051195E3BC00796B78 /* user.icns */; };
+		F8F1BC99118E0F19007C3A7B /* SVParcelObject.m in Sources */ = {isa = PBXBuildFile; fileRef = F8F1BC98118E0F19007C3A7B /* SVParcelObject.m */; };
 		F8F24E8210B6761C006F822F /* delete.icns in Resources */ = {isa = PBXBuildFile; fileRef = F8F24E7F10B6761C006F822F /* delete.icns */; };
 		F8F24E8310B6761C006F822F /* down.icns in Resources */ = {isa = PBXBuildFile; fileRef = F8F24E8010B6761C006F822F /* down.icns */; };
 		F8F24E8410B6761C006F822F /* help.icns in Resources */ = {isa = PBXBuildFile; fileRef = F8F24E8110B6761C006F822F /* help.icns */; };
@@ -67,6 +69,9 @@
 		F8D9DD8610070E7E007DC2FA /* English */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = English; path = English.lproj/Credits.rtf; sourceTree = "<group>"; };
 		F8D9DD8A10070EA0007DC2FA /* German */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = German; path = German.lproj/Credits.rtf; sourceTree = "<group>"; };
 		F8D9DD9610071379007DC2FA /* German */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = German; path = German.lproj/Localizable.strings; sourceTree = "<group>"; wrapsLines = 1; };
+		F8DDDE051195E3BC00796B78 /* user.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = user.icns; sourceTree = "<group>"; };
+		F8F1BC97118E0F19007C3A7B /* SVParcelObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVParcelObject.h; sourceTree = "<group>"; };
+		F8F1BC98118E0F19007C3A7B /* SVParcelObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVParcelObject.m; sourceTree = "<group>"; };
 		F8F24E7F10B6761C006F822F /* delete.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = delete.icns; sourceTree = "<group>"; };
 		F8F24E8010B6761C006F822F /* down.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = down.icns; sourceTree = "<group>"; };
 		F8F24E8110B6761C006F822F /* help.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = help.icns; sourceTree = "<group>"; };
@@ -93,6 +98,8 @@
 				A95D6B7910EFB0E200B7AEA7 /* SVParcelCalculatorController.m */,
 				A95D6B7A10EFB0E200B7AEA7 /* SVParcelCalculatorControllerPrivate.h */,
 				A95D6B7B10EFB0E200B7AEA7 /* SVParcelCalculatorControllerPrivate.m */,
+				F8F1BC97118E0F19007C3A7B /* SVParcelObject.h */,
+				F8F1BC98118E0F19007C3A7B /* SVParcelObject.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -158,6 +165,7 @@
 				F8F24E8010B6761C006F822F /* down.icns */,
 				F8F24E8110B6761C006F822F /* help.icns */,
 				F8F24E9210B67820006F822F /* search.icns */,
+				F8DDDE051195E3BC00796B78 /* user.icns */,
 				F896663410B7667300CA1733 /* dpdlogo.png */,
 				F8C28E4D10073646004B90F9 /* PCalc_AppBanner.png */,
 				F82E6310110BABC000ECEDC0 /* ParcelCalculator.help */,
@@ -245,6 +253,7 @@
 				F896663510B7667300CA1733 /* dpdlogo.png in Resources */,
 				F82E633D110BABC000ECEDC0 /* ParcelCalculator.help in Resources */,
 				F87455BA110DA0D10000E3D6 /* dsa_pub.pem in Resources */,
+				F8DDDE061195E3BC00796B78 /* user.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,6 +267,7 @@
 				8D11072D0486CEB800E47090 /* main.m in Sources */,
 				A95D6B7C10EFB0E200B7AEA7 /* SVParcelCalculatorController.m in Sources */,
 				A95D6B7D10EFB0E200B7AEA7 /* SVParcelCalculatorControllerPrivate.m in Sources */,
+				F8F1BC99118E0F19007C3A7B /* SVParcelObject.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,7 +318,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 18;
+				CURRENT_PROJECT_VERSION = 19;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../Frameworks/Sparkle\"",
@@ -335,7 +345,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				CURRENT_PROJECT_VERSION = 18;
+				CURRENT_PROJECT_VERSION = 19;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
