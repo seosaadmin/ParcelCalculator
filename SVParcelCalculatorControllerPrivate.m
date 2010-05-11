@@ -2,8 +2,8 @@
 //  SVParcelCalculatorControllerPrivate.m
 //  Parcel Calculator
 //
-//  Coded by Stefan Vogt, revised Apr 25, 2010.
-//  Released under a FreeBSD license variant.
+//  Coded by Stefan Vogt, revised May 9, 2010.
+//  Released under the FreeBSD license.
 //  http://www.byteproject.net
 //
 
@@ -12,7 +12,7 @@
 
 @implementation SVParcelCalculatorController (SVParcelCalculatorControllerPrivate)
 
-#pragma mark Sheets
+#pragma mark sheets and panels
 
 - (IBAction)orderFrontVerificationSheet:(id)sender 
 {
@@ -23,10 +23,10 @@
 						defaultButton:@"OK" 
 					  alternateButton:nil
 						  otherButton:nil 
-		    informativeTextWithFormat:NSLocalizedString(@"It seems that not all variables "\
-														"(height, width, length) have usable "\
-														"values. Please specify the required "\
-														"dimensions and try again.",nil)];
+		    informativeTextWithFormat:NSLocalizedString(@"It seems that not all variables "
+														@"(height, width, length) have usable "
+														@"values. Please specify the required "
+														@"dimensions and try again.",nil)];
 		
 		[verificationAlert setAlertStyle:NSCriticalAlertStyle];
 		[verificationAlert beginSheetModalForWindow:mainWindow
@@ -80,11 +80,20 @@
 	[preferencesSheet orderOut:nil];
 }
 
-#pragma mark Main Menu
+- (IBAction)showParcelLibClearAlert:(id)sender
+{
+	NSRunCriticalAlertPanel(NSLocalizedString(@"Careful", nil), 
+							NSLocalizedString(@"Pressing this button erases all data in your "
+											  @"parcel library. In case this is what you want, "
+											  @"please proceed.", nil),
+											  @"OK", nil, nil);
+}
+
+#pragma mark main menu
 
 - (IBAction)openHomePage:(id)sender 
 {
-	NSString *appHomePage = (@"http://www.byteproject.net/?page_id=11");
+	NSString *appHomePage = (@"http://byteproject.net/parcelcalculator");
 	[[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:appHomePage]];
 }
 
@@ -99,7 +108,6 @@
 	NSString *issueTracker = (@"http://github.com/ByteProject/ParcelCalculator/issues");
 	[[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:issueTracker]];
 }
-
 
 - (IBAction)setModeDHL:(id)sender 
 {

@@ -2,12 +2,13 @@
 //  SVParcelCalculatorController.m
 //  Parcel Calculator
 //
-//  Coded by Stefan Vogt, revised Apr 25, 2010.
-//  Released under a FreeBSD license variant.
+//  Coded by Stefan Vogt, revised May 8, 2010.
+//  Released under the FreeBSD license.
 //  http://www.byteproject.net
 //
 
 #import "SVParcelCalculatorController.h"
+#import "SVParcelObject.h"
 
 #define defaultTrackingMode SVTrackingModeDHL
 #define defaultMeasurement 0
@@ -16,14 +17,13 @@
 
 @synthesize SVHasLaunchedBefore, height, width, length, trackingMode, trackingNumberString, 
 			maxAllowedGirth, maxAllowedLength, lengthUnitString, volwtUnitString, mFactor,
-			prefMode, prefMetrics;
+			prefMode, prefMetrics, parcelLibraryView, parcelArray;
 
-#pragma mark Initialization
+#pragma mark initialization
 
 - (id)init 
 {
-	self = [super init];
-	if (self) 
+	if (self = [super init])
 	{
 		[self addObserver: self
 			   forKeyPath: @"prefMode"
@@ -34,6 +34,8 @@
 			   forKeyPath: @"prefMetrics"
 				  options: NSKeyValueObservingOptionNew
 				  context: NULL];
+		
+		self.parcelArray = [[NSMutableArray alloc] init];
 	}
 	return self;
 }
@@ -51,9 +53,11 @@
 	self.prefMetrics = [defaults integerForKey:@"prefMetrics"];
 	self.prefMode = [defaults integerForKey:@"prefMode"];
 	self.trackingMode = self.prefMode;
+	
+	[self loadParcelLibraryFromDisk];
 }
 
-#pragma mark Key-Value Coding
+#pragma mark key-value coding
 
 + (NSSet *)keyPathsForValuesAffectingValueForKey:(NSString *)key 
 {
@@ -115,9 +119,9 @@
 		[keyPaths addObject:@"maxAllowedGirth"];
 		[keyPaths addObject:@"maxAllowedLength"];
 	} 
-	else if ([key isEqualToString:@"enableTrackingButton"]) {
+	else if ([key isEqualToString:@"hideParcelLibMenuItems"]) {
 		[keyPaths addObject:@"trackingNumberString"];
-	} 
+	}
 	return keyPaths;
 }
 
@@ -174,7 +178,7 @@
 	}
 }
 
-#pragma mark Calculation
+#pragma mark calculation
 
 - (CGFloat)girth 
 {
@@ -186,7 +190,7 @@
 	return (double)self.height * (double)self.width * (double)self.length / self.mFactor;
 }
 
-#pragma mark Strings
+#pragma mark strings
 
 - (NSString *)longGirthString 
 {
@@ -256,17 +260,20 @@
 	return NSLocalizedString(@"Shipment of this parcel is possible.",nil);
 }
 
-#pragma mark User Experience
+#pragma mark user experience
 
-- (BOOL)enableTrackingButton 
+- (BOOL)hideParcelLibMenuItems
 {
-	return (self.trackingNumberString != nil && self.trackingNumberString.length > 0);
+	return (self.trackingNumberString == nil || self.trackingNumberString.length == 0);
 }
 		 		 
-#pragma mark Actions
+#pragma mark actions
 
 - (IBAction)trackParcel:(id)sender 
 {
+	if (self.trackingNumberString == nil || self.trackingNumberString.length == 0) {
+		return;
+	}
 	NSString *trackingURLString = nil;
 	NSString *trackLocale = nil;
 	
@@ -300,8 +307,8 @@
 			trackLocale = NSLocalizedString(@"EN",nil);
 			trackingURLString = 
 			[NSString stringWithFormat:
-			 @"http://www.gls-group.eu/276-I-PORTAL-WEB/content/GLS/DE03/"\
-			 "%@/5004.htm?txtRefNo=%@&txtAction=71000",
+			 @"http://www.gls-group.eu/276-I-PORTAL-WEB/content/GLS/DE03/"
+			 @"%@/5004.htm?txtRefNo=%@&txtAction=71000",
 			 trackLocale, self.trackingNumberString];
 			break;
 		}
@@ -346,6 +353,82 @@
 	self.height = 0;
 	self.width = 0;
 	self.length = 0;
+}
+
+- (IBAction)addParcelObject:(id)sender
+{
+	SVParcelObject *aParcelObject = [[SVParcelObject alloc] init];
+	aParcelObject.poTrackingNumberString = self.trackingNumberString;
+	aParcelObject.poTrackingProvider = self.trackingMode;
+	aParcelObject.poDescription = @"";
+	
+	[[self mutableArrayValueForKey:@"parcelArray"] addObject:aParcelObject];
+}
+
+# pragma mark data
+
+- (void)tableViewSelectionDidChange:(NSNotification *)notification
+{
+	NSInteger row = [self.parcelLibraryView selectedRow]; 
+	if (row == -1) {
+		return;
+	} 
+	SVParcelObject *selectedParcel = [self.parcelArray objectAtIndex:row];
+	self.trackingNumberString = selectedParcel.poTrackingNumberString;
+	self.trackingMode = selectedParcel.poTrackingProvider;
+}
+
+- (NSString *)pathForParcelLibraryFile
+{
+	NSFileManager *fileManager = [[NSFileManager alloc] init];
+    
+	NSString *folder = @"~/Library/Application Support/Parcel Calculator/";
+	folder = [folder stringByExpandingTildeInPath];
+	
+	if ([fileManager fileExistsAtPath:folder] == NO)
+	{
+		[fileManager createDirectoryAtPath:folder 
+			   withIntermediateDirectories:YES 
+								attributes:nil 
+									 error:nil];
+	}
+	NSString *fileName = @"ParcelCalculator.parcellib";
+	return [folder stringByAppendingPathComponent:fileName];    
+}
+
+- (void)saveParcelLibraryToDisk
+{
+	NSString *path = self.pathForParcelLibraryFile;
+	
+	NSMutableDictionary *rootObject;
+	rootObject = [NSMutableDictionary dictionary];
+	[rootObject setValue:self.parcelArray forKey:@"parcelArray"];
+	
+	[NSKeyedArchiver archiveRootObject:rootObject toFile:path];
+}
+
+- (void)loadParcelLibraryFromDisk
+{
+	NSString *path = self.pathForParcelLibraryFile;
+	
+	NSDictionary *rootObject;
+    rootObject = [NSKeyedUnarchiver unarchiveObjectWithFile:path];    
+	if ([rootObject valueForKey:@"parcelArray"] != nil) 
+	{
+		self.parcelArray = [rootObject valueForKey:@"parcelArray"];	
+	}
+}
+
+- (IBAction)clearParcelLibrary:(id)sender
+{
+	for (id aParcelObject in self.parcelArray) {
+		[[self mutableArrayValueForKey:@"parcelArray"] removeObject:aParcelObject];
+	}
+}
+
+- (void)applicationWillTerminate:(NSNotification *)notification
+{
+	[self saveParcelLibraryToDisk];
 }
 
 @end

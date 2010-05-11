@@ -2,8 +2,8 @@
 //  SVParcelCalculatorControllerPrivate.h
 //  Parcel Calculator
 //
-//  Coded by Stefan Vogt, revised Feb 23, 2010.
-//  Released under a FreeBSD license variant.
+//  Coded by Stefan Vogt, revised May 9, 2010.
+//  Released under the FreeBSD license.
 //  http://www.byteproject.net
 //
 
@@ -18,6 +18,7 @@
 - (IBAction)orderOutVerificationSheet:(id)sender;
 - (IBAction)orderOutTrackingSheet:(id)sender;
 - (IBAction)orderOutPreferencesSheet:(id)sender;
+- (IBAction)showParcelLibClearAlert:(id)sender;
 - (IBAction)openHomePage:(id)sender;
 - (IBAction)openSourceRepository:(id)sender;
 - (IBAction)openIssueTracker:(id)sender;

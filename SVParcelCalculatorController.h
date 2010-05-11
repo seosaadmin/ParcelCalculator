@@ -2,14 +2,14 @@
 //  SVParcelCalculatorController.h
 //  Parcel Calculator
 //
-//  Coded by Stefan Vogt, revised Apr 25, 2010.
-//  Released under a FreeBSD license variant.
+//  Coded by Stefan Vogt, revised May 8, 2010.
+//  Released under the FreeBSD license.
 //  http://www.byteproject.net
 //
 
 #import <Cocoa/Cocoa.h>
 
-/* tracking mode */
+// tracking mode
 typedef enum {
 	SVTrackingModeDHL,
 	SVTrackingModeDPD,
@@ -22,15 +22,15 @@ typedef enum {
 } SVTrackingMode;
 
 @interface SVParcelCalculatorController : NSObject {
-	IBOutlet NSWindow	*mainWindow;
-	IBOutlet NSPanel	*verificationSheet;
-	IBOutlet NSPanel	*trackingSheet;
-	IBOutlet NSPanel	*preferencesSheet;
-	IBOutlet NSButton	*trackingButton;
+	IBOutlet NSWindow		*mainWindow;
+	IBOutlet NSPanel		*verificationSheet;
+	IBOutlet NSPanel		*trackingSheet;
+	IBOutlet NSPanel		*preferencesSheet;
+	IBOutlet NSTableView	*parcelLibraryView;
 	
 	SVTrackingMode	trackingMode;
 	BOOL			SVHasLaunchedBefore;
-	BOOL			enableTrackingButton;
+	BOOL			hideParcelLibMenuItems;
 	NSInteger		height, width, length;
 	NSInteger		prefMode;
 	NSInteger		prefMetrics;
@@ -40,9 +40,10 @@ typedef enum {
 	NSString		*trackingNumberString;
 	NSString		*lengthUnitString;
 	NSString		*volwtUnitString;
+	NSMutableArray	*parcelArray;
 }
 
-/* integer and float values */
+// integer and float values
 @property (readwrite, assign) SVTrackingMode	trackingMode;
 @property (readwrite, assign) NSInteger			height;
 @property (readwrite, assign) NSInteger			width;
@@ -55,32 +56,41 @@ typedef enum {
 @property (readonly) CGFloat					girth;
 @property (readonly) CGFloat					volumetricWeight;
 @property (readwrite, assign) BOOL				SVHasLaunchedBefore;
-@property (readonly) BOOL						enableTrackingButton;
+@property (readonly) BOOL						hideParcelLibMenuItems;
 
-/* strings */
+// interface strings
 @property (readwrite, assign) NSString			*trackingNumberString;
 @property (readwrite, assign) NSString			*lengthUnitString;
 @property (readwrite, assign) NSString			*volwtUnitString;
-@property(readonly) NSString					*widthString;
-@property(readonly) NSString					*heightString;
-@property(readonly) NSString					*lengthString;
-@property(readonly) NSString					*girthString;
+@property (readonly) NSString					*widthString;
+@property (readonly) NSString					*heightString;
+@property (readonly) NSString					*lengthString;
+@property (readonly) NSString					*girthString;
+@property (readonly) NSString					*longGirthString;
+@property (readonly) NSString					*longVolumetricWeightString;
+@property (readonly) NSString					*shipmentInfoMessage;
+@property (readonly) NSString					*girthInfoMessage;
+@property (readonly) NSString					*lengthInfoMessage;
+@property (readonly) NSString					*userActionInfoMessage;
 
-@property(readonly) NSString					*longGirthString;
-@property(readonly) NSString					*longVolumetricWeightString;
+// outlets
+@property (retain) IBOutlet NSTableView			*parcelLibraryView;
 
-@property(readonly) NSString					*shipmentInfoMessage;
-@property(readonly) NSString					*girthInfoMessage;
-@property(readonly) NSString					*lengthInfoMessage;
-@property(readonly) NSString					*userActionInfoMessage;
+// data
+@property (retain) NSMutableArray				*parcelArray;
+@property (readonly) NSString					*pathForParcelLibraryFile;
 
-
-
-/* actions */
+// action methods
 - (IBAction)reset:(id)sender;
 - (IBAction)trackParcel:(id)sender;
+- (IBAction)addParcelObject:(id)sender;
+- (IBAction)clearParcelLibrary:(id)sender;
+- (void)saveParcelLibraryToDisk;
+- (void)loadParcelLibraryFromDisk;
 
-/* initialization */
+// notifications
 - (void)applicationDidFinishLaunching:(NSNotification *)notification;
+- (void)tableViewSelectionDidChange:(NSNotification *)notification;
+- (void)applicationWillTerminate:(NSNotification *)notification;
 
 @end
