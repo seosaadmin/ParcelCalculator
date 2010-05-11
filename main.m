@@ -3,7 +3,7 @@
 //  Parcel Calculator
 //
 //  Coded by Stefan Vogt on Jan 02, 2010.
-//  Released under a FreeBSD license variant.
+//  Released under the FreeBSD license.
 //  http://www.byteproject.net
 //
 
