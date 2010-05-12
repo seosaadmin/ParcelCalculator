@@ -1,4 +1,4 @@
-'Parcel Calculator' is native Mac OS X application, mainly for calculating girth, volumetric weight and for tracking parcels. It is written in ObjC / Cocoa with extensive usage of Objective-C 2.0 sytnax. Newer technologies such as garbage collection require Snow Leopard (or higher) to work properly. Feature overview:
+'Parcel Calculator' is a native Mac OS X application, mainly for calculating girth, volumetric weight and for tracking parcels. It is written in ObjC / Cocoa with extensive usage of Objective-C 2.0 sytnax. Newer technologies such as garbage collection require Snow Leopard (or higher) to work properly. Feature overview:
 
 - calculation of girth and volumetric weight
 - track the following delivery companies: DHL, DPD, FedEx, GLS, Hermes, ParcelForce, Royal Mail, UPS
