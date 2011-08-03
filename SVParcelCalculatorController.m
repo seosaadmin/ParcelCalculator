@@ -2,9 +2,11 @@
 //  SVParcelCalculatorController.m
 //  Parcel Calculator
 //
-//  Coded by Stefan Vogt, revised May 8, 2010.
-//  Released under the FreeBSD license.
-//  http://www.byteproject.net
+//  Copyright (c) 2010-2011, Stefan Vogt. All rights reserved.
+//  http://byteproject.net
+//
+//  Use of this source code is governed by a MIT-style license.
+//  See the file LICENSE for details.
 //
 
 #import "SVParcelCalculatorController.h"
@@ -268,6 +270,10 @@
 }
 		 		 
 #pragma mark actions
+
+//TNT Express: http://www.tnt.com/webtracker/tracking.do?cons=123456781&navigation=1&respLang=en&respCountry=GENERIC
+//TNT Post(NL): https://tracktrace.tntpostpakketservice.nl/search/searchbasic.aspx?lang=nl&B=3SRRTM4769424&P=1324DL
+//TNT Post(NL) INT: https://tracktrace.tntpostpakketservice.nl/Search/searchbasic.aspx?lang=nl&B=123456789&I=True
 
 - (IBAction)trackParcel:(id)sender 
 {

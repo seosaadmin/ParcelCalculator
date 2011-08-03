@@ -2,9 +2,11 @@
 //  SVParcelObject.h
 //  Parcel Calculator
 //
-//  Coded by Stefan Vogt, revised May 6, 2010.
-//  Released under the FreeBSD license.
-//  http://www.byteproject.net
+//  Copyright (c) 2010-2011, Stefan Vogt. All rights reserved.
+//  http://byteproject.net
+//
+//  Use of this source code is governed by a MIT-style license.
+//  See the file LICENSE for details.
 //
 
 #import <Foundation/Foundation.h>
